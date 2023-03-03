@@ -24,13 +24,13 @@ public class BaseSteps {
      final SelenideElement Error = $x("//div[@class='alert alert-error']");
      final SelenideElement labelAva = $x("//div[@id='avatars-form']/label");
      final SelenideElement cards = $x("//a[@id='cards-overview-index']");
-     final SelenideElement getPodt = $x("//*[@id='card-details-ownbank-10066']/div[2]/div[2]/div[1]");
-     final SelenideElement block = $x("//*[@id='card-details-ownbank-10066']/div[2]/div[2]/div[2]/div/div[2]/a/span");
+     final SelenideElement getPodt = $x("//*[@id=\"card-details-ownbank-10068\"]/div[2]/div[2]/div/div/div[1]/a/span");
+     final SelenideElement block = $x("//*[@id=\"card-details-ownbank-10068\"]/div[2]/div[2]/div/div/div[2]/a/span");
      final SelenideElement blockBut = $x("//*[@id='block-card']");
      final SelenideElement smsCod = $x("//*[@id='otp-input']");
      final SelenideElement butPodt =$x("//*[@id='confirm']");
-     final SelenideElement blockProv = $x("//*[@id='card-details-ownbank-10066']/div[2]/div[2]/div[1]");
-     final SelenideElement unBlockBut = $x("//*[@id='card-details-ownbank-10066']/div[2]/div[2]/div[2]/div/div[1]/a/span");
+     final SelenideElement blockProv = $x("//*[@id=\"card-details-ownbank-10068\"]/div[2]/div[2]/div[1]");
+     final SelenideElement unBlockBut = $x("//*[@id=\"card-details-ownbank-10068\"]/div[2]/div[2]/div[2]/div/div[1]/a/span");
 
     @Step("Авторизация")
     void loginStep() {
@@ -49,7 +49,7 @@ public class BaseSteps {
     void cardBlock() {
 
         cards.shouldBe(visible).click();
-        getPodt.shouldHave(text("Действует"));
+        //getPodt.shouldHave(text("Заблокировать"));
         block.shouldBe(visible).click();
         blockBut.shouldBe(visible).click();
         switchTo().frame($x("//*[@id='confirmation-frame']"));
@@ -64,7 +64,7 @@ public class BaseSteps {
         switchTo().frame($x("//*[@id='confirmation-frame']"));
         smsCod.shouldBe(visible).val("0000");
         butPodt.shouldBe(visible).click();
-        getPodt.shouldHave(text("Действует"));
+        getPodt.shouldHave(text("Пополнить"));
 
     }
 
